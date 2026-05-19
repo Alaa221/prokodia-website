@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prokodia — Innovating Your Digital Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="logo">Pro<span>kodia</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">خدماتنا</a></li>
+      <li><a href="#projects">مشاريعنا</a></li>
+      <li><a href="#stats">أرقامنا</a></li>
+      <li><a href="#contact" class="nav-cta">تواصل معنا</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+  <div class="container hero-content">
+    <div class="hero-badge">🚀 وكالة رقمية متكاملة</div>
+    <h1 class="hero-title">
+      نحوّل أفكارك إلى<br>
+      <span class="gradient-text">تجارب رقمية</span> لا تُنسى
+    </h1>
+    <p class="hero-sub">
+      Prokodia وكالة رقمية متخصصة في تصميم المواقع، تطوير التطبيقات،<br>
+      والتسويق الرقمي — نبني مستقبلك الرقمي بأعلى المعايير.
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-primary">شوف شغلنا</a>
+      <a href="#contact" class="btn btn-ghost">ابدأ مشروعك</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ SERVICES ═══════════════════════════════ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">خدماتنا</span>
+      <h2 class="section-title">كل اللي تحتاجه في مكان واحد</h2>
+      <p class="section-sub">من التصميم للتسويق — Prokodia معاك في كل خطوة</p>
+    </div>
+
+    <div class="services-grid">
+      {% for s in services %}
+      <div class="service-card" data-index="{{ loop.index }}">
+        <div class="service-icon">{{ s.icon }}</div>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.desc }}</p>
+        <ul class="service-tags">
+          {% for f in s.features %}
+          <li>{{ f }}</li>
+          {% endfor %}
+        </ul>
+        <div class="card-glow"></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PROJECTS ═══════════════════════════════ -->
+<section class="section section-dark" id="projects">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">مشاريعنا</span>
+      <h2 class="section-title">شغل بيتكلم عن نفسه</h2>
+      <p class="section-sub">جزء من المشاريع اللي حققنا فيها نتائج حقيقية</p>
+    </div>
+
+    <div class="projects-grid">
+      {% for p in projects %}
+      <div class="project-card color-{{ p.color }}">
+        <div class="project-top">
+          <span class="project-tag">{{ p.tag }}</span>
+        </div>
+        <div class="project-body">
+          <span class="project-category">{{ p.category }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.desc }}</p>
+        </div>
+        <div class="project-footer">
+          <a href="#contact" class="project-link">اعرف أكتر ←</a>
+        </div>
+        <div class="project-bg-shape"></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ STATS ═══════════════════════════════ -->
+<section class="section stats-section" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      {% for st in stats %}
+      <div class="stat-card">
+        <div class="stat-number">{{ st.number }}</div>
+        <div class="stat-label">{{ st.label }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ WHY US ═══════════════════════════════ -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-text">
+        <span class="section-tag">ليه Prokodia؟</span>
+        <h2 class="section-title" style="text-align:right">نحن مش مجرد وكالة —<br><span class="gradient-text">نحن شريك نجاحك</span></h2>
+        <p class="section-sub" style="text-align:right">بنفهم أهدافك، بنبني استراتيجية، وبننفذ بأعلى جودة — مع متابعة مستمرة لضمان النتائج.</p>
+        <ul class="why-list">
+          <li><span class="check">✓</span> فريق متخصص في كل مجال</li>
+          <li><span class="check">✓</span> تسليم في الوقت المحدد دايماً</li>
+          <li><span class="check">✓</span> شفافية كاملة في كل مرحلة</li>
+          <li><span class="check">✓</span> نتائج قابلة للقياس</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" style="margin-top:2rem">ابدأ معنا دلوقتي</a>
+      </div>
+      <div class="why-visual">
+        <div class="visual-card">
+          <div class="vc-title">Prokodia</div>
+          <div class="vc-sub">Innovating Your Digital Future</div>
+          <div class="vc-line"></div>
+          <div class="vc-tags">
+            <span>Design</span><span>Dev</span><span>Marketing</span><span>SEO</span><span>Ads</span><span>Social</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
+<section class="section section-dark" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">تواصل معنا</span>
+      <h2 class="section-title">خليك تاخد الخطوة الأولى</h2>
+      <p class="section-sub">سيبلنا رسالة وهنرد عليك في أقل من 24 ساعة</p>
+    </div>
+
+    <form class="contact-form" action="#" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label>الاسم</label>
+          <input type="text" name="name" placeholder="اسمك الكريم" required>
+        </div>
+        <div class="form-group">
+          <label>الإيميل أو الواتساب</label>
+          <input type="text" name="contact" placeholder="info@yourcompany.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>الخدمة المطلوبة</label>
+        <select name="service">
+          <option value="">اختار الخدمة</option>
+          <option>تصميم موقع</option>
+          <option>تطوير موقع / تطبيق</option>
+          <option>إدارة سوشيال ميديا</option>
+          <option>تسويق رقمي</option>
+          <option>باقة متكاملة</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>تفاصيل المشروع</label>
+        <textarea name="message" rows="4" placeholder="احكيلنا عن مشروعك..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">أرسل الرسالة 🚀</button>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo">Pro<span>kodia</span></div>
+    <p class="footer-tag">Innovating Your Digital Future</p>
+    <div class="footer-links">
+      <a href="#services">الخدمات</a>
+      <a href="#projects">المشاريع</a>
+      <a href="#contact">تواصل</a>
+    </div>
+    <p class="footer-copy">© 2025 Prokodia. جميع الحقوق محفوظة.</p>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
